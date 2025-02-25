@@ -235,3 +235,9 @@ sudo usermod -aG docker $USER
 You will need to log out and log back in for the changes to take effect.
 
 Run 'docker COMMAND --help' for more information on a command.
+
+docker run -d -p 3000:3000 --name my-docker-app docker-app-2020 = http://localhost:3000
+
+docker run -d -p 3001:3000 --name my-docker-app docker-app-2020 = http://localhost:3001
+
+
