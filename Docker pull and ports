@@ -1,0 +1,75 @@
+Basic Docker Commands
+
+docker pull nginx
+
+docker pull httpd
+
+docker pull mysql
+
+docker pull postgres
+
+docker pull mongo
+
+docker pull redis
+
+docker pull jenkins/jenkins
+
+docker pull gitlab/gitlab-ce
+
+docker pull prom/prometheus
+
+docker pull grafana/grafana
+
+docker pull tensorflow/tensorflow
+
+docker pull jupyter/base-notebook
+
+docker pull rabbitmq
+
+docker pull nats
+
+docker pull traefik
+
+docker pull haproxy
+
+docker pull minio/minio
+
+docker pull nextcloud
+
+
+Run Containers and Check Ports
+
+docker run -d -p 8080:80 nginx
+curl http://localhost:8080
+
+docker run -d -p 8081:80 httpd
+curl http://localhost:8081
+
+docker run -d -p 3307:3306 -e MYSQL_ROOT_PASSWORD=root mysql
+mysql -h 127.0.0.1 -P 3307 -u root -p
+
+docker run -d -p 5433:5432 postgres
+
+docker run -d -p 27018:27017 mongo
+
+docker run -d -p 6380:6379 redis
+
+docker run -d -p 8082:8080 jenkins/jenkins
+
+docker run -d -p 8929:80 gitlab/gitlab-ce
+
+docker run -d -p 9091:9090 prom/prometheus
+
+docker run -d -p 3001:3000 grafana/grafana
+
+docker run -d -p 8889:8888 jupyter/base-notebook
+
+docker run -d -p 15673:15672 rabbitmq
+
+docker run -d -p 4223:4222 nats
+
+docker run -d -p 8083:8080 traefik
+
+docker run -d -p 9001:9000 minio/minio server /data
+
+docker run -d -p 8084:80 nextcloud
