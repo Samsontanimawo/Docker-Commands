@@ -18,3 +18,20 @@ EXPOSE 3000
 
 # Define the command to run the application
 CMD ["node", "server.js"]
+
+####################################################################
+
+
+FROM node:18
+WORKDIR /app
+COPY . /app
+RUN npm install
+EXPOSE 3000
+CMD ["node", "server.js"]
+
+##########################################
+
+Allow Running Docker Without sudo
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
