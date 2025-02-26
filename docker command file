@@ -141,3 +141,18 @@ docker service scale <service-name>=<replica-count>
 
 # Remove a Docker service (for swarm mode)
 docker service rm <service-name>
+
+############################################################################
+
+Run docker automatically without building it whenever you make changes
+docker stop my-docker-app (my-docker-app = container name)
+docker rm my-docker-app
+docker run -p 3000:3000 -v "$(pwd)":/app --name my-docker-app sre-app (docker image name)
+
+
+docker run → Runs a new container.
+-p 3000:3000 → Maps port 3000 of the container to port 3000 on your machine.
+-v "$(pwd)":/app → Mounts your current directory ($(pwd)) into the /app folder inside the container.
+This means any code changes made in your local project folder will be reflected inside the container.
+--name my-docker-app → Assigns a name (my-docker-app) to the container.
+sre-app → Uses the sre-app Docker image to create the container.
