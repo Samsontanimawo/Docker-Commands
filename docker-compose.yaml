@@ -1,0 +1,155 @@
+# INSTALL DOCKER COMPOSE
+
+1. sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+2. sudo chmod +x /usr/local/bin/docker-compose
+
+3. sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+4. docker-compose --version
+
+https://docs.docker.com/compose/install/
+
+###########################################################################################################################################################################
+
+
+# Docker Compose Commands
+
+Docker Compose helps manage multi-container applications. Below are commonly used commands to set up, run, and maintain containers.
+
+## Basic Commands
+
+### Start Containers (Detached Mode)
+```sh
+docker-compose up -d
+```
+Runs containers in the background.
+
+### Start Containers (Foreground Mode)
+```sh
+docker-compose up
+```
+Runs containers with logs visible in the terminal.
+
+### Stop Containers
+```sh
+docker-compose down
+```
+Stops and removes containers, networks, and volumes.
+
+### Restart Containers
+```sh
+docker-compose restart
+```
+Restarts all running services.
+
+### Check Running Containers
+```sh
+docker-compose ps
+```
+Lists active services.
+
+### View Logs
+```sh
+docker-compose logs
+```
+View logs for all services.
+```sh
+docker-compose logs -f
+```
+Follow logs in real-time.
+
+## Container & Service Management
+
+### Start a Specific Service
+```sh
+docker-compose up -d service_name
+```
+
+### Stop a Specific Service
+```sh
+docker-compose stop service_name
+```
+
+### Restart a Specific Service
+```sh
+docker-compose restart service_name
+```
+
+### Remove Stopped Containers
+```sh
+docker-compose rm
+```
+
+## Building & Updating
+
+### Build Images Without Starting Containers
+```sh
+docker-compose build
+```
+
+### Rebuild a Specific Service
+```sh
+docker-compose build service_name
+```
+
+### Recreate Containers (without rebuilding images)
+```sh
+docker-compose up --force-recreate
+```
+
+### Recreate and Rebuild Containers
+```sh
+docker-compose up --build
+```
+
+## Networking & Environment
+
+### List Networks
+```sh
+docker network ls
+```
+
+### Check Environment Variables
+```sh
+docker-compose config
+```
+
+## Managing Volumes
+
+### List Volumes
+```sh
+docker volume ls
+```
+
+### Remove Unused Volumes
+```sh
+docker volume prune
+```
+
+## Executing Commands Inside a Running Container
+
+### Run a Command in a Running Service
+```sh
+docker-compose exec service_name command
+```
+Example: Open a shell inside a running container:
+```sh
+docker-compose exec app sh
+```
+or
+```sh
+docker-compose exec app bash
+```
+
+### Run a One-Time Command in a New Container
+```sh
+docker-compose run service_name command
+```
+Example:
+```sh
+docker-compose run app npm install
+```
+
+## Conclusion
+These commands help efficiently manage your Docker Compose environment. For more details, refer to the [Docker documentation](https://docs.docker.com/compose/).
