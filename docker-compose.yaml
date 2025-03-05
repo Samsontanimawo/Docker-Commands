@@ -12,6 +12,42 @@ https://docs.docker.com/compose/install/
 
 ###########################################################################################################################################################################
 
+version: '3.8'
+
+services:
+  app:
+    image: node:18
+    container_name: my_node_app
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - db
+    command: "npm start"
+
+  db:
+    image: postgres:15
+    container_name: my_postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+
+########################################################################################################################################################################
+
 
 # Docker Compose Commands
 
